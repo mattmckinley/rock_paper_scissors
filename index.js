@@ -9,21 +9,18 @@ console.log("Welcome to Rock, Paper, Scissors!");
 function handleUserResponse (response) {
     // Ignore capitalization of words
     response = response.toLowerCase();
-    // Validate user choice to tell them if they made a mistake
+    // Validate user choice and tell them if they made a mistake
     if (response === 'rock' || response === 'paper' || response === 'scissors') {
         console.log(`You chose ${response}`);
       } else {
-        console.log("Mmmm that's not right! Please choose either rock, paper or scissors.");
+        console.log("Mmmm that's not right! Choose either rock, paper or scissors.");
 };
         // Need to find a way to reset the game here if answer is wrong.
     
 // Make a random selection for the computer
-    // A random choice of rock, paper, scissors.
-    // use math.random() to split the three choices. “rock” < 0.3, “paper” 0.3 - 0.6, “scissors” > 0.6
-
 function getComputerChoice() {
+    // use math.random() to split the three choices. “rock” < 0.3, “paper” 0.3 - 0.6, “scissors” > 0.6
     let computerChoice = Math.random();
-          
     if (computerChoice < 0.34) {
         computerChoice = "rock";
     } else if (computerChoice < 0.67) {
@@ -35,9 +32,12 @@ function getComputerChoice() {
 };
     getComputerChoice();
 
-
-
 // Compare the two choices
+function compare() {
+    let userChoice = handleUserResponse();
+    let compChoice = getComputerChoice();
+    
+}
       // Create variables for player and computer choice and compare with rules.
 // Report on who won
 
