@@ -5,41 +5,45 @@ console.log("Welcome to Rock, Paper, Scissors!");
     input: process.stdin,
     output: process.stdout
 });
-
+// User choice
 function handleUserResponse (response) {
-    // Ignore capitalization of words
     response = response.toLowerCase();
-    // Validate user choice and tell them if they made a mistake
     if (response === 'rock' || response === 'paper' || response === 'scissors') {
-        console.log(`You chose ${response}`);
+        console.log(`You chose: ${response}`);
       } else {
-        console.log("Mmmm that's not right! Choose either rock, paper or scissors.");
-};
-        // Need to find a way to reset the game here if answer is wrong.
-    
-// Make a random selection for the computer
-function getComputerChoice() {
-    // use math.random() to split the three choices. “rock” < 0.3, “paper” 0.3 - 0.6, “scissors” > 0.6
-    let computerChoice = Math.random();
-    if (computerChoice < 0.34) {
-        computerChoice = "rock";
-    } else if (computerChoice < 0.67) {
-        computerChoice = "paper";
-    } else {
-        computerChoice = "scissors";
-    }
-        console.log(`Computer chose ${computerChoice}`);
-};
-    getComputerChoice();
+        console.log('Mmmm that\'s not right! Please choose either rock, paper or scissors.');
+};      // Need to find a way to reset the game here if answer is wrong.
 
-// Compare the two choices
-function compare() {
-    let userChoice = handleUserResponse();
-    let compChoice = getComputerChoice();
-    
-}
-      // Create variables for player and computer choice and compare with rules.
-// Report on who won
+// Computer choice    
+let computerChoice = Math.random();
+        if (computerChoice < 0.34) {
+            computerChoice = 'rock';
+        } else if(computerChoice <= 0.67) {
+            computerChoice = 'paper';
+        } else {
+            computerChoice = 'scissors';
+        };
+        console.log(`Computer chose: ${computerChoice}`)
+
+// Compare the two choices and report winner
+function compareChoices(response, computerChoice) {
+    if (response === "paper" && computerChoice === "rock") {
+        return "You win! YAY!";
+    } else if (response === "scissors" && computerChoice === "paper") {
+        return "You win! YAY!";
+    } else if (response === "rock" && computerChoice === "scissors") {
+        return "You win! YAY!";
+    } else if (computerChoice === "paper" && response === "rock") {
+        return "Computer wins! Boo.";
+    } else if (computerChoice === "scissors" && response === "paper") {
+        return "Computer wins! Boo.";
+    } else if (computerChoice === "rock" && response === "scissors") {
+        return "Computer wins! Boo.";
+    } else {
+        return "It's a tie!";
+    }
+};
+    console.log(compareChoices(response, computerChoice));
 
 
     readline.close();
